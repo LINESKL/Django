@@ -1,8 +1,6 @@
 from django.db import models
 from django.contrib.postgres.fields import ArrayField
 
-# Create your models here.
-
 class TelegramUser(models.Model):
     user_id = models.BigIntegerField(unique=True, verbose_name="ID пользователя")
     username = models.CharField(max_length=100, blank=True, null=True, verbose_name="Имя пользователя")
@@ -10,7 +8,6 @@ class TelegramUser(models.Model):
     used_functions = models.JSONField(default=list, verbose_name="Использованные функции")
     quiz_points = models.IntegerField(default=0, verbose_name="Очки за квиз")
     created_at = models.DateTimeField(auto_now_add=True)
-    # Добавляем поля для анкетных данных
     full_name = models.CharField(max_length=255, blank=True, null=True, verbose_name="ФИО")
     gender = models.CharField(max_length=10, blank=True, null=True, verbose_name="Пол")
     age = models.IntegerField(blank=True, null=True, verbose_name="Возраст")

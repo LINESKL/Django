@@ -34,7 +34,7 @@ class FirstLevelAPIView(APIView):
 
         # Статистика по детям
         children_stats = {}
-        for i in range(21):  # Категории от 0 до 20 детей
+        for i in range(21):
             children_stats[f"{i}_children"] = users.annotate(children_as_int=Cast('children', IntegerField())).filter(
                 children_as_int=i).count()
 
