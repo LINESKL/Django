@@ -105,7 +105,7 @@ cities_kb = ReplyKeyboardMarkup(
 # Обновляем клавиатуру с функциями
 functions_kb = ReplyKeyboardMarkup(
     keyboard=[
-        [KeyboardButton(text="Фиансы"), KeyboardButton(text="Криптовалюты"), KeyboardButton(text="Инвестиии")],
+        [KeyboardButton(text="Финансы"), KeyboardButton(text="Криптовалюты"), KeyboardButton(text="Инвестиии")],
         [KeyboardButton(text="Стартапы"), KeyboardButton(text="Технологии"), KeyboardButton(text="Кибербезопасность")],
         [KeyboardButton(text="ИИ"), KeyboardButton(text="Маркетинг"), KeyboardButton(text="Бизнес")],
         [KeyboardButton(text="Образование"), KeyboardButton(text="Проверить себя"), KeyboardButton(text="Личный кабинет")],
@@ -311,7 +311,7 @@ def save_user_data_sync(user_id: int, user_data: dict):
 @router.message(Form.waiting_for_benefits)
 async def process_benefits(message: types.Message, state: FSMContext):
     if message.text not in ["Да", "Нет"]:
-        await message.reply("ожалуйста, используйте кнопки для ответа.", reply_markup=benefits_kb)
+        await message.reply("Пожалуйста, используйте кнопки для ответа.", reply_markup=benefits_kb)
         return
     
     user_data = await state.get_data()
